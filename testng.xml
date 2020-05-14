@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="firstSuite">
+    <parameter name="greeting" value="Hello world!"/>
+    <test name="firstTest">
+        <classes>
+            <class name="test.java.lesson1.TestTask5"></class>
+        </classes>
+    </test>
+</suite>

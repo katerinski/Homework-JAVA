@@ -1,4 +1,4 @@
-package lesson1;
+package main.java.lesson1;
 
 /**
  * Реализовать функцию, которая принимает строку и возвращает ее же в обратном виде
@@ -8,9 +8,15 @@ package lesson1;
 public class Task5 {
     public static void main(String[] args) {
         String str = "Hello world!!!";
-        String reverse = new StringBuffer(str).reverse().toString();
-        System.out.println(reverse);
+        System.out.println(reverseString(str));
     }
+
+    public static String reverseString(String str) {
+
+        String reverse = new StringBuffer(str).reverse().toString();
+        return reverse;
+    }
+
 }
 
 /*второй вариант
@@ -22,4 +28,13 @@ public class Task5 {
         for (int i = reverseArray1.length-1; i >= 0; i--)
             System.out.print(reverseArray1[i]);
     }
+
+        public static String reverse(String str) {
+        String reversedString = "";
+        for (int i = (str.length() - 1); i >= 0; i--) {
+            reversedString += str.charAt(i);
+        }
+        return reversedString;
+    }
+
 }*/

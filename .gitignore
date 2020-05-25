@@ -3,3 +3,5 @@
 /target
 *.exe
 Probation.java
+logs/
+screenshots/

@@ -21,7 +21,7 @@ public class TestWaits {
     WebDriver driver;
     WebDriverWait wait;
     String popupStrSelector = "[class='popup-css lang-switcher-popup sprite-side']";
-    String expectedColorOfAllBorders = "rgb(248, 65, 71)";
+    String expectedColorOfAllBordersIfInputEmpty = "rgb(248, 65, 71)";
     String expectedColorOfBordersIfInputFilled = "rgb(210, 210, 210)";
     String nameOfUser = "Катерина";
     By userLink = By.cssSelector("[class='header-topline__user-link link-dashed']");
@@ -62,22 +62,25 @@ public class TestWaits {
         WebElement userPassword = driver.findElement(password);
         wait.until(ExpectedConditions.elementToBeClickable(userPassword)).click();
         driver.findElement(registerButton).click();
+
+        wait.until(ExpectedConditions.attributeToBe(driver.findElement(password),
+                "border-color", "rgb(248, 65, 71")); //ожидание пока элемент приобретет нужный атрибут
         String actualColorOfBorderUserName = userName.getCssValue("border-color");
         assertEquals(
                 actualColorOfBorderUserName,
-                expectedColorOfAllBorders,
+                expectedColorOfAllBordersIfInputEmpty,
                 "UserName assert failed"
         );
         String actualColorOfBorderEmail = userEmail.getCssValue("border-color");
         assertEquals(
                 actualColorOfBorderEmail,
-                expectedColorOfAllBorders,
+                expectedColorOfAllBordersIfInputEmpty,
                 "UserEmail assert failed"
         );
         String actualColorOfBorderPassword = userPassword.getCssValue("border-color");
         assertEquals(
                 actualColorOfBorderPassword,
-                expectedColorOfAllBorders,
+                expectedColorOfAllBordersIfInputEmpty,
                 "Password assert failed"
         );
     }
@@ -94,18 +97,20 @@ public class TestWaits {
         driver.findElement(registerButton).click();
         String actualColorOfBorderUserName = userName.getCssValue("border");
         assertTrue(actualColorOfBorderUserName.contains(expectedColorOfBordersIfInputFilled),
-                String.format("Expected '%s' to contains '%s'", actualColorOfBorderUserName, expectedColorOfBordersIfInputFilled)
+                String.format("Expected '%s' to contains '%s'",
+                        actualColorOfBorderUserName,
+                        expectedColorOfBordersIfInputFilled)
         );
         String actualColorOfBorderEmail = userEmail.getCssValue("border-color");
         assertEquals(
                 actualColorOfBorderEmail,
-                expectedColorOfAllBorders,
+                expectedColorOfAllBordersIfInputEmpty,
                 "UserEmail assert failed"
         );
         String actualColorOfBorderPassword = userPassword.getCssValue("border-color");
         assertEquals(
                 actualColorOfBorderPassword,
-                expectedColorOfAllBorders,
+                expectedColorOfAllBordersIfInputEmpty,
                 "Password assert failed"
         );
     }

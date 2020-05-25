@@ -13,7 +13,7 @@ public class Web_homework {
         Thread.sleep(1000);
         String phone = driver.findElement(By.cssSelector("[class='link-dashed']")).getText();
         System.out.println(phone.replaceAll("-| |\\)|\\(", "")); //«044XXXXXXX»
-       driver.quit();
+        driver.quit();
 
     }
 }

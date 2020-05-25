@@ -8,54 +8,57 @@ import static org.testng.Assert.assertEquals;
 public class TestTask3 {
     String name = "Kate ";
 
-   @Test
+    @Test
     public void isResultCorrect() {
-       String actualResult = nameTenTimes(name); //метод while
-       String expectedResult = "";
-       for (int i = 0; i < 5; i++) {
-           for (int j = 1; j < 10; j++) {
-               expectedResult += name;
-           }
-           expectedResult += name + "\n";
-       }
-       assertEquals(
-               actualResult,
-               expectedResult,
-               "Actual result is " + actualResult + " but expected result is " + expectedResult
-       );
-   }
+        String actualResult = nameTenTimes(name); //метод while
+        String expectedResult = "";
+        for (int i = 0; i < 5; i++) {
+            for (int j = 1; j < 10; j++) {
+                expectedResult += name;
+            }
+            expectedResult += name + "\n";
+        }
+        assertEquals(
+                actualResult,
+                expectedResult,
+                "Actual result is " + actualResult + " but expected result is " + expectedResult
+        );
+    }
 
-   @Test
+    @Test
     public void isQuantityOfStringsCorrect() {
         String newName = nameTenTimes(name);
-        String[]  arr = newName.split("\n");
-        int actualQuantityOfStrings = 0;
-        for (int i=0;i<arr.length;i++){
-        ++actualQuantityOfStrings;}
+        String[] arr = newName.split("\n");
+        int actualQuantityOfStrings = arr.length;
+        
+//        for (int i = 0; i < arr.length; i++) {
+//            ++actualQuantityOfStrings;
+//        }
         int expectedQuantityOfStrings = 5;
         assertEquals(
                 actualQuantityOfStrings,
                 expectedQuantityOfStrings,
                 "Expected quantity of strings is " + expectedQuantityOfStrings + " but actual quantity is " + actualQuantityOfStrings
         );
-   }
+    }
 
-   @Test
+    @Test
     public void isQuantityOfWordsCorrect() {
-       String newName = nameTenTimes(name);
-       int index = newName.indexOf("\n");
-       String newName1 = newName.substring(0,index);
-       String[]  arr = newName1.split(" ");
-       int actualQuantityOfWords = 0;
-       for (int i=0;i<arr.length;i++){
-           ++actualQuantityOfWords;}
-       int expectedQuantityOfWords = 10;
-       assertEquals(
-               actualQuantityOfWords,
-               expectedQuantityOfWords,
-               "Expected quantity of strings is " + expectedQuantityOfWords + " but actual quantity is " + actualQuantityOfWords
-       );
-   }
+        String newName = nameTenTimes(name);
+        int index = newName.indexOf("\n");
+        String newName1 = newName.substring(0, index);
+        String[] arr = newName1.split(" ");
+        int actualQuantityOfWords = arr.length;
+//        for (int i = 0; i < arr.length; i++) {
+//            ++actualQuantityOfWords;
+//        }
+        int expectedQuantityOfWords = 10;
+        assertEquals(
+                actualQuantityOfWords,
+                expectedQuantityOfWords,
+                "Expected quantity of strings is " + expectedQuantityOfWords + " but actual quantity is " + actualQuantityOfWords
+        );
+    }
 
     @Test
     public void isLengthCorrect() {

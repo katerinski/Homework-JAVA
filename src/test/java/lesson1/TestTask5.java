@@ -16,11 +16,11 @@ public class TestTask5 {
     public void isFirstCharacterInReversedStringIsCorrect(@Optional("Good Bye!") String greeting) {
         String reverse = reverseString(greeting);
         char actualFirstChar = reverse.charAt(0);
-        char expectedFirstChar = greeting.charAt(greeting.length()-1); //"!"
+        char expectedFirstChar = greeting.charAt(greeting.length() - 1); //"!"
         assertEquals(
                 actualFirstChar,
                 expectedFirstChar,
-                "Expected first char " + expectedFirstChar  + " is not " + actualFirstChar
+                "Expected first char " + expectedFirstChar + " is not " + actualFirstChar
         );
     }
 
@@ -33,7 +33,7 @@ public class TestTask5 {
         assertEquals(
                 actualLengthOfString,
                 expectedLengthOfString,
-                "Expected length is " + expectedLengthOfString  + " is not equal " + actualLengthOfString
+                "Expected length is " + expectedLengthOfString + " is not equal " + actualLengthOfString
         );
     }
 }

@@ -2,6 +2,7 @@ package main.java.lesson1;
 
 public class Task1 {
     int number;
+
     /* Минимум трех чисел
     Написать функцию, которая вычисляет минимум из трёх чисел.
     */
@@ -21,9 +22,9 @@ public class Task1 {
         return min;
     }
 
-    public void setNumber (int number) {
+    public void setNumber(int number) {
 
-        this.number=number;
+        this.number = number;
     }
 
     public int getNumber() {

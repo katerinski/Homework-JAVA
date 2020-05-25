@@ -10,7 +10,7 @@ public class TestTask1 {
 
     @Test(dataProvider = "data")
     public void testMin(int number1, int number2, int number3) {
-        int actualMin = min(number1,number2,number3);
+        int actualMin = min(number1, number2, number3);
         int expectedMin = 2;
         assertEquals(
                 actualMin,
@@ -21,16 +21,16 @@ public class TestTask1 {
 
     @DataProvider(name = "data")
     public Object[][] getNumbers() {
-        return new Object[][] {
-                {5,2,3},
-                {2,2,2},
-                {2,2,5},
+        return new Object[][]{
+                {5, 2, 3},
+                {2, 2, 2},
+                {2, 2, 5},
         };
     }
 
     @Test
     public void isMinResultCorrect() {
-        int actualMinResult = min(8,3,2);
+        int actualMinResult = min(8, 3, 2);
         int expectedMinResult = 2;
         assertEquals(actualMinResult,
                 expectedMinResult,

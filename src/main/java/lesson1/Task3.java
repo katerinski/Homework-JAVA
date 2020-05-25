@@ -12,31 +12,31 @@ public class Task3 {
     public static void main(String[] args) {
         String str = "Kate ";
         System.out.println(nameTenTimes(str));
-        }
+    }
 
-        public static String nameTenTimes(String name) {
-        String result="";
-            int i=0;
-            while ( i < 5) {
-                int j=1;
-                while (j<10){
-                    result += name;//System.out.print(name);
-                    j++;
-                }
-                result += name + "\n"; //System.out.println (name);
-                i++;
+    public static String nameTenTimes(String name) {
+        String result = "";
+        int i = 0;
+        while (i < 5) {
+            int j = 1;
+            while (j < 10) {
+                result += name;//System.out.print(name);
+                j++;
             }
-            return result;
+            result += name + "\n"; //System.out.println (name);
+            i++;
         }
+        return result;
+    }
 
-    public void setName (String name) {
-        this.name=name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getName() {
         return this.name;
     }
 
-    }
+}
 
 

@@ -1,4 +1,4 @@
-package lesson1;
+package main.java.lesson1;
 
 /* Мое имя
 Вывести на экран свое имя 5 строк по 10 раз (через пробел).
@@ -10,15 +10,15 @@ public class Task4 {
 
     public static void main(String[] args) {
         String str = "Kate";
-        int j=0;
+        int j = 0;
         do {
-            int i=0;
+            int i = 0;
             do {
-                System.out.print(str+" ");
+                System.out.print(str + " ");
                 i++;
-            }while (i<10);
+            } while (i < 10);
             System.out.println(str);
             j++;
-        }while (j<5);
+        } while (j < 5);
     }
 }

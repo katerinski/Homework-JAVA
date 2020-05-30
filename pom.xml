@@ -19,6 +19,9 @@
             <resource>
                 <directory>src/test/resources</directory>
             </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
         </resources>
         <sourceDirectory>src</sourceDirectory>
         <plugins>
@@ -51,7 +54,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.1.0</version>
+            <version>6.14.3</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>

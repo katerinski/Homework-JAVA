@@ -1,6 +1,8 @@
 package test.java;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeMethod;
@@ -20,22 +22,6 @@ public class TestPO extends TestBaseSetup {
     HomePage homePage;
     GoodsPage goodsPage;
     NotebooksPage notebooksPage;
-    String computers = "Ноутбуки и компьютеры";
-    String phones = "Смартфоны, ТВ и электроника";
-    String appliances = "Бытовая техника";
-    String forHome = "Товары для дома";
-    String instruments = "Инструменты и автотовары";
-    String sanitary = "Сантехника и ремонт";
-    String garden = "Дача, сад и огород";
-    String sport = "Спорт и увлечения";
-    String clothes = "Одежда, обувь и украшения";
-    String beauty = "Красота и здоровье";
-    String children = "Детские товары";
-    String books = "Канцтовары и книги";
-    String food = "Алкогольные напитки и продукты";
-    String tourism = "Товары для бизнеса";
-    String service = "Услуги и сервисы";
-    String foodSets = "Продовольственные наборы";
 
 
     @BeforeMethod
@@ -95,13 +81,11 @@ public class TestPO extends TestBaseSetup {
 
     //проверить, что на странице все товары одного производителя
     @Test
-    public void testNotebooks() throws InterruptedException {
+    public void testNotebooks() {
         homePage.open();
         homePage.clickGood();
         goodsPage.clickGoodsBtn();
         notebooksPage.clickLabel();
-        Thread.sleep(5000); //чтобы подождать баннер
-        notebooksPage.closeBanner();
         List<WebElement> webLinks = notebooksPage.getGoodsOfOneLabel();
         for (WebElement element : webLinks) {
             String actualLabelOfGoods = element.getText();
@@ -140,6 +124,24 @@ public class TestPO extends TestBaseSetup {
                 {"Asus"},
         };
 
+    }
+
+    @Test(dataProvider = "getProducerName")
+    public void notebookFiltersCheck(String producer) {
+        homePage.openThisPage("https://rozetka.com.ua/notebooks/c80004/preset=workteaching/");
+        notebooksPage.setFilter(producer);
+        String actualState = notebooksPage.detectAllProducerGoods(producer);
+        assertEquals(actualState, producer, "Error on page. Some item not from '"+producer+"' producer : " + actualState);
+    }
+
+
+    @DataProvider
+    public Object[] getProducerName() {
+        return new Object[][]{
+                {"Asus"},
+                {"Apple"},
+                {"Acer"}
+        };
     }
 }
 

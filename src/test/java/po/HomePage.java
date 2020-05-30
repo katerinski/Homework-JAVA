@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import test.java.utils.PropertyLoader;
 
 import java.util.List;
 
@@ -54,12 +55,17 @@ public class HomePage {
 
 
     public HomePage open() {
-        logger.info("https://rozetka.com.ua/ is open");
-        driver.get("https://rozetka.com.ua/");
+        logger.info(PropertyLoader.loadProperty("url"));
+        driver.get(PropertyLoader.loadProperty("url"));
         if (popup.size() > 0) {
             popupClose.click();
         }
         logger.trace("Popups closed");
+        return this;
+    }
+
+    public HomePage openThisPage(String url) {
+        driver.get(url);
         return this;
     }
 
@@ -79,7 +85,7 @@ public class HomePage {
     public List<WebElement> getGoodsOnPage() {
         logger.info("Get goods on page");
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(goodsOnPage));
-        logger.error("not all elements located on Goods page are visible");
+//        logger.error("not all elements located on Goods page are visible");
         return driver.findElements(goodsOnPage);
     }
 

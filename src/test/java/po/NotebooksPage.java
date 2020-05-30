@@ -13,6 +13,8 @@ import java.util.List;
 
 public class NotebooksPage {
     String label = "Acer";
+    private String producer;
+    private String eState;
     public Logger logger = LogManager.getLogger(NotebooksPage.class);
     private final WebDriver driver;
     private final WebDriverWait wait;
@@ -33,7 +35,7 @@ public class NotebooksPage {
         logger.info("Click label " + label);
         wait.until(ExpectedConditions.elementToBeClickable(labels));
         driver.findElement(labels).click();
-        logger.error("Couldn't interact with element" + labels);
+//        logger.error("Couldn't interact with element" + labels);
         return this;
     }
 
@@ -48,6 +50,27 @@ public class NotebooksPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(banner));
         wait.until(ExpectedConditions.presenceOfElementLocated(bannerClose)).click();
         return this;
+    }
+
+    public NotebooksPage setFilter(String producer){
+        logger.info("set producer: "+producer+" filter");
+        this.producer = producer;
+        WebElement producerCheckbox = driver.findElement(By.xpath("//*[@for='"+this.producer+"']"));
+        producerCheckbox.click();
+        return this;
+    }
+
+    public String detectAllProducerGoods(String eState){
+        this.eState=eState;
+        List<WebElement> listOfElementsIphone = driver.findElements(By.xpath("//a[@class='goods-tile__heading']//child::span[contains(text(),'" + producer + "')]"));
+        for (WebElement element : listOfElementsIphone) {
+            if (!element.getText().toLowerCase().contains(eState.toLowerCase())) {
+                //if (!element.getText().contains("Meizu")) {
+                this.eState = element.getText();
+                break;
+            }
+        }
+        return this.eState;
     }
 }
 

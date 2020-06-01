@@ -45,6 +45,7 @@ public class Listener implements
         logger.trace("Test successed");
     }
 
+    //снятие скриншотов только для упавших тестов
     @Override
     public void onTestFailure(ITestResult iTestResult) {
         logger.trace("Test failed");

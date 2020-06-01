@@ -50,9 +50,10 @@ public class TestBaseSetup {
         optionsCh.addArguments("--disable-notifications");
         optionsCh.addArguments("--window-size=1300,1080");
         FirefoxOptions optionsFF = new FirefoxOptions();
-        context.setAttribute("driver",driver);
+        context.setAttribute("driver", driver);
         try {
-            driver = new RemoteWebDriver(new URL("http://ec2-3-21-234-230.us-east-2.compute.amazonaws.com:4444/wd/hub"), optionsFF);
+            driver = new RemoteWebDriver(
+                    new URL("http://ec2-3-21-234-230.us-east-2.compute.amazonaws.com:4444/wd/hub"), optionsFF); //запуск драйвера в изолированном контейнере
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -65,26 +66,26 @@ public class TestBaseSetup {
         wait = new WebDriverWait(driver, 10);
     }
 
-     */
+    */
 
     // multybrowsers-testng.xml
     @Parameters("driver")
     @BeforeMethod
     public void beforeMethod(@Optional("chrome") String browserName, ITestContext context) {
         driver = getDriverByName(browserName);
-        context.setAttribute("driver",driver);
+        context.setAttribute("driver", driver);
         screenshot = new Screenshot(driver);
         wait = new WebDriverWait(driver, 10);
     }
 
     private WebDriver getDriverByName(String browserName) {
-        WebDriver driver=null;
+        WebDriver driver = null;
         if (browserName.equals("chrome")) {
             System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--disable-notifications");
             options.addArguments("--window-size=1300,1080");
-            driver=new ChromeDriver();
+            driver = new ChromeDriver();
         }
         if (browserName.equals("firefox")) {
             System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
@@ -104,7 +105,6 @@ public class TestBaseSetup {
             return false;
         }
     }
-
 
 
     @AfterMethod

@@ -9,7 +9,11 @@ import java.lang.reflect.Method;
 public class AnnotationTransformer implements IAnnotationTransformer {
     @Override
     public void transform(ITestAnnotation iTestAnnotation, Class aClass, Constructor constructor, Method method) {
-        iTestAnnotation.setRetryAnalyzer(RetryAnalyzer.class);
+        iTestAnnotation.setRetryAnalyzer(RetryAnalyzer.class); //повторный прогон упавших тестов
+        if (method.getName().equals("producerFiltersCheck")) {
+            iTestAnnotation.setDataProviderClass(DataProvider1.class);//С помощью AnnotationTransformer реализовать возможность подкладывать дата провайдер через testng.xml файл
+            iTestAnnotation.setDataProvider("getDP1");
+        }
 
     }
 }

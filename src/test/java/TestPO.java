@@ -1,8 +1,6 @@
 package test.java;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementClickInterceptedException;
-import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeMethod;
@@ -127,7 +125,7 @@ public class TestPO extends TestBaseSetup {
     }
 
     @Test(dataProvider = "getProducerName")
-    public void notebookFiltersCheck(String producer) {
+    public void producerFiltersCheck(String producer) {
         homePage.openThisPage("https://rozetka.com.ua/notebooks/c80004/preset=workteaching/");
         notebooksPage.setFilter(producer);
         String actualState = notebooksPage.detectAllProducerGoods(producer);

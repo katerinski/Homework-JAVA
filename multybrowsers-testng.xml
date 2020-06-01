@@ -1,15 +1,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!--Параметризировать браузер для запуска тестов-->
 <suite name="multyBrowsers" parallel="tests">
+    <listeners>
+        <listener class-name="test.java.utils.Listener"/>
+        <listener class-name="test.java.utils.AnnotationTransformer"></listener>
+    </listeners>
     <test name="Firefox Test">
-        <parameter name="driver" value="firefox" />
+        <parameter name="driver" value="firefox"/>
         <classes>
-            <class name="test.java.TestFirst" />
+            <class name="test.java.TestFirst"/>
         </classes>
     </test>
     <test name="Chrome Test">
-        <parameter name="driver" value="chrome" />
+        <parameter name="driver" value="chrome"/>
         <classes>
-            <class name="test.java.TestFirst" />
+            <class name="test.java.TestFirst"/>
         </classes>
     </test>
 </suite>

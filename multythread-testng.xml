@@ -6,7 +6,7 @@
     </listeners>
     <test name="First_test">
         <classes>
-            <class name="test.java.TestFirst"></class>
+            <class name="test.java.TestFilter"></class>
 <!--            <class name="test.java.TestSecond"></class>-->
 <!--            <class name="test.java.TestThird"></class>-->
         </classes>

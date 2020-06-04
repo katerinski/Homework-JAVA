@@ -8,13 +8,13 @@
     <test name="Firefox Test">
         <parameter name="driver" value="firefox"/>
         <classes>
-            <class name="test.java.TestFirst"/>
+            <class name="test.java.TestFilter"/>
         </classes>
     </test>
     <test name="Chrome Test">
         <parameter name="driver" value="chrome"/>
         <classes>
-            <class name="test.java.TestFirst"/>
+            <class name="test.java.TestFilter"/>
         </classes>
     </test>
 </suite>

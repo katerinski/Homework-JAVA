@@ -1,5 +1,6 @@
 package test.java.po;
 
+import io.qameta.allure.Step;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
@@ -54,6 +55,7 @@ public class HomePage {
     }
 
 
+    @Step("Open homepage")
     public HomePage open() {
         logger.info(PropertyLoader.loadProperty("url"));
         driver.get(PropertyLoader.loadProperty("url"));
@@ -64,11 +66,13 @@ public class HomePage {
         return this;
     }
 
+    @Step("Open home page by url {url}")
     public HomePage openThisPage(String url) {
         driver.get(url);
         return this;
     }
 
+    @Step("Search by {searchStr}")
     public HomePage search(String searchStr) {
         logger.info("Search on home page by " + searchStr);
         this.searchStr = searchStr;
@@ -82,6 +86,7 @@ public class HomePage {
         return this;
     }
 
+    @Step
     public List<WebElement> getGoodsOnPage() {
         logger.info("Get goods on page");
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(goodsOnPage));
@@ -89,18 +94,21 @@ public class HomePage {
         return driver.findElements(goodsOnPage);
     }
 
+    @Step
     public List<WebElement> getGoodsInLeftSidebar() {
         logger.info("Get goods in left sidebar");
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(goodsInLeftSidebar));
         return driver.findElements(goodsInLeftSidebar);
     }
 
+    @Step
     public List<WebElement> getAllGoods() {
         logger.info("Get all goods");
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(allGoods));
         return driver.findElements(allGoods);
     }
 
+    @Step
     public HomePage clickGood() {
         logger.info("Page with goods --" + computers + "-- is open");
         WebElement goodBtn = driver.findElement(good);

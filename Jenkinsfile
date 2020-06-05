@@ -6,18 +6,18 @@ pipeline {
              echo 'Hello'
           }
        }
-    }
 
-    stages {
-           stage("First") {
+
+
+           stage("Second") {
               steps {
                  echo 'Hello'
               }
            }
-        }
 
-        stages {
-               stage("First") {
+
+
+               stage("Third") {
                   steps {
                      echo 'Hello'
                   }

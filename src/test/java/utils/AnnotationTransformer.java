@@ -2,6 +2,7 @@ package test.java.utils;
 
 import org.testng.IAnnotationTransformer;
 import org.testng.annotations.ITestAnnotation;
+import test.java.DataProvider1;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;

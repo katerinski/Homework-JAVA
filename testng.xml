@@ -3,7 +3,11 @@
     <parameter name="greeting" value="Hello world!"/>
     <test name="firstTest">
         <classes>
-            <class name="test.java.lesson1.TestTask5"></class>
+            <class name="test.java.lesson1.TestTask5">
+                <methods>
+                    <include name="isLengthOfStringCorrect"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

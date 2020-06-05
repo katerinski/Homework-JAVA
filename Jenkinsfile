@@ -9,13 +9,13 @@ pipeline {
        }
            stage("Second") {
               steps {
-                 echo 'Hello'
+                 echo 'mvn clean -DsuiteXmlFile=multythread-testng.xml test'
            }
        }
 
            stage("Third") {
               steps {
-                 echo 'Hello'
+                 echo 'Bye'
            }
        }
     }

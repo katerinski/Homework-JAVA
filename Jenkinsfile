@@ -1,26 +1,22 @@
 pipeline {
-    agend any
+    agent any
     stages {
-       stage("First") {
+       stage("Preparation") {
           steps {
-             echo 'Hello'
+             echo 'Download updates'
+             git 'https://github.com/katerinski/Homework-JAVA.git'
           }
        }
-
-
-
            stage("Second") {
               steps {
                  echo 'Hello'
-              }
            }
+       }
 
-
-
-               stage("Third") {
-                  steps {
-                     echo 'Hello'
-                  }
-               }
-            }
+           stage("Third") {
+              steps {
+                 echo 'Hello'
+           }
+       }
+    }
 }

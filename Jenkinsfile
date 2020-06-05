@@ -7,15 +7,15 @@ pipeline {
              git 'https://github.com/katerinski/Homework-JAVA.git'
           }
        }
-           stage("Second") {
+           stage("Unit tests") {
               steps {
-                 echo 'mvn clean -DsuiteXmlFile=multythread-testng.xml test'
+                 bat 'mvn clean -DsuiteXmlFile=multythread-testng.xml test'
            }
        }
 
-           stage("Third") {
+           stage("UI tests") {
               steps {
-                 echo 'Bye'
+                 bat 'mvn clean -DsuiteXmlFile=testng.xml test'
            }
        }
     }

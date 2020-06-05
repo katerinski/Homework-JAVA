@@ -18,5 +18,19 @@ pipeline {
                  bat 'mvn clean -DsuiteXmlFile=testng.xml test'
            }
        }
+
+       stage('reports') {
+           steps {
+           script {
+                   allure([
+                           includeProperties: false,
+                           jdk: '',
+                           properties: [],
+                           reportBuildPolicy: 'ALWAYS',
+                           results: [[path: 'allure-results']]
+                   ])
+           }
+           }
+       }
     }
 }

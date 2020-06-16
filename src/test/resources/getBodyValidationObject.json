@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Product set",
+  "type": "object",
+  "items": {
+    "title": "Product",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "number"
+      },
+      "order": {
+        "type": "number"
+      },
+      "color": {
+        "type": "number"
+      },
+      "name": {
+        "type": "string"
+      },
+      "comment_count": {
+        "type": "number"
+      },
+      "shared": {
+        "type": "boolean"
+      },
+      "is_favorite": {
+        "type": "boolean"
+      },
+      "sync_id": {
+        "type": "number"
+      }
+    },
+    "required": ["id", "order", "color", "name", "comment_count", "shared", "is_favorite", "sync_id"]
+  }
+}

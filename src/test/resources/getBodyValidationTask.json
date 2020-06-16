@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Product set",
+  "type": "object",
+  "items": {
+    "title": "Product",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "number"
+      },
+      "project_id": {
+        "type": "number"
+      },
+      "section_id": {
+        "type": "number"
+      },
+      "order": {
+        "type": "number"
+      },
+      "content": {
+        "type": "string"
+      },
+      "completed": {
+        "type": "boolean"
+      },
+      "label_ids": {
+        "type": "array"
+      },
+      "priority": {
+        "type": "number"
+      },
+      "comment_count": {
+        "type": "number"
+      },
+      "created": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      }
+    },
+    "required": ["id", "project_id", "section_id", "order", "content", "completed", "label_ids", "comment_count",  "priority", "created", "url"]
+  }
+}
